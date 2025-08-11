@@ -9,7 +9,7 @@ pip install tensorflow
 ## The system is built using Python, NLTK for text preprocessing, scikit-learn for feature extraction, and TensorFlow/Keras for machine learning model training.
 ## This report explains the process step-by-step, from data preparation to model evaluation.
 #-----------------------------------
-1. Dataset
+## Dataset
 The dataset (feedback.csv) contains labeled feedback messages where:
 
 text: the customer feedback string.
@@ -17,44 +17,44 @@ text: the customer feedback string.
 label: sentiment category — 1 for Positive, 0 for Negative.
 
 
-2. Preprocessing
+## Preprocessing
 Customer feedback text can contain noise, punctuation, and irrelevant words. Preprocessing ensures the model focuses only on meaningful content.
 
-2.1 Steps performed
-# Contraction Expansion
+### Steps performed
+#### Contraction Expansion
 
 Converts short forms to their full meaning.
 Example: "don't" → "do not", "can't" → "can not".
 This helps preserve negations, which are critical for sentiment.
 
-# Lowercasing
+#### Lowercasing
 
 Converts all text to lowercase for consistency.
 
-# Removing Non-Alphabetic Characters
+#### Removing Non-Alphabetic Characters
 
 Removes punctuation, numbers, and special characters using regex.
 
-# Tokenization
+#### Tokenization
 
 Splits text into individual words using nltk.word_tokenize.
 
-# Stopword Removal (with Negation Preservation)
+#### Stopword Removal (with Negation Preservation)
 
 Removes common words such as “the” or “is” that add little meaning.
 
-# Negators like "not", "no", "never" are kept to preserve sentiment context.
+#### Negators like "not", "no", "never" are kept to preserve sentiment context.
 
-# Stemming
+#### Stemming
 
 Reduces words to their base form.
 Example: "loving", "loved" → "love".
 
 
-3. Feature Extraction
+## Feature Extraction
 The model cannot directly work with text, so we convert it into numeric form using Bag-of-Words (BoW) with scikit-learn’s CountVectorizer.
 
-3.1 Configuration
+### Configuration
 Tokenizer: Custom cleaner function from preprocessing step.
 
 binary=True: Records only presence/absence of a word (not frequency).
@@ -64,7 +64,7 @@ This is crucial to distinguish "good" (positive) from "not good" (negative).
 
 
 
-4. Data Splitting
+## Data Splitting
 The dataset is split into:
 
 Training Set (80%): Used to train the model.
@@ -73,7 +73,7 @@ Test Set (20%): Used to evaluate the model.
 
 Stratified splitting ensures both sets have a similar positive/negative ratio.
 
- 5. Model Architecture
+## Model Architecture
 We use a simple feedforward neural network in TensorFlow/Keras.
 
 Architecture:
@@ -92,7 +92,7 @@ Loss Function: Binary Crossentropy
 
 Metric: Accuracy
 
-6. Training
+## Training
 Epochs: 20
 
 Batch Size: 4
@@ -101,13 +101,13 @@ Validation Split: 20% of training set used for validation during training.
 
 Training converts the sparse BoW matrix to a dense array for Keras compatibility.
 
-7. Evaluation
+## Evaluation
 The model is evaluated on the test set after training.
 
 
 
 
-8. Prediction on New Data
+## Prediction on New Data
 The model includes an interactive loop where a user can type feedback, and the system predicts:
 
 Positive if probability ≥ 0.5
