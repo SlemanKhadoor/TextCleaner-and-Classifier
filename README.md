@@ -1,13 +1,13 @@
 # install
-pip install nltk pandas scikit-learn tensorflow
-pip install tensorflow
+##pip install nltk pandas scikit-learn tensorflow
+##pip install tensorflow
 
 
 
 
 ## The goal of this project is to develop a sentiment classification system that can automatically determine whether a piece of customer feedback is Positive or Negative.
-## The system is built using Python, NLTK for text preprocessing, scikit-learn for feature extraction, and TensorFlow/Keras for machine learning model training.
-## This report explains the process step-by-step, from data preparation to model evaluation.
+The system is built using Python, NLTK for text preprocessing, scikit-learn for feature extraction, and TensorFlow/Keras for machine learning model training.
+This report explains the process step-by-step, from data preparation to model evaluation.
 #-----------------------------------
 ## Dataset
 The dataset (feedback.csv) contains labeled feedback messages where:
