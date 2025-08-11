@@ -1,6 +1,6 @@
 # install
-##pip install nltk pandas scikit-learn tensorflow
-##pip install tensorflow
+## pip install nltk pandas scikit-learn tensorflow
+## pip install tensorflow
 
 
 
